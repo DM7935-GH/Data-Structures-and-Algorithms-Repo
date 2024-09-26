@@ -70,4 +70,9 @@ public class MainCode {
         LList1.Pop(0); LList1.Pop(0);
         System.out.println("Length: " + LList1.Length());
     }
+
+    public static void circularListTest() {
+        CircularLinkedList CLL1 = new CircularLinkedList("List 3", true);
+        CLL1.IsEmpty();
+    }
 }
