@@ -11,9 +11,9 @@ public class BasicList {
 
     public BasicList(int max_size, String name, boolean printMessages) {
         if (max_size <= 0) {
-            this.max_size = 20;
+            this.max_size = 10;
             if (printMessages) {
-                System.err.println("Number given for basic list maximum size is invalid - 20 has been used.");
+                System.err.println("Number given for basic list maximum size is invalid - 10 has been used.");
             }
         } else {
             this.max_size = max_size;
