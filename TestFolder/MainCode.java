@@ -74,5 +74,6 @@ public class MainCode {
     public static void circularListTest() {
         CircularLinkedList CLL1 = new CircularLinkedList("List 3", true);
         CLL1.IsEmpty();
+        CLL1.Print();
     }
 }
