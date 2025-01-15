@@ -14,9 +14,9 @@ public class CircularLinkedList{
      * Creates a circular linked list object with no given name.
      */
     public CircularLinkedList() {
-        head = null;
-        name = "";
-        printMessages = false;
+        this.head = null;
+        this.name = "";
+        this.printMessages = false;
     }
 
     /**
@@ -24,9 +24,9 @@ public class CircularLinkedList{
      * @param name - The name that this list will be referred to by.
      */
     public CircularLinkedList(String name) {
-        head = null;
-        name = this.name;
-        printMessages = false;
+        this.head = null;
+        this.name = name;
+        this.printMessages = false;
     }
 
     /**
@@ -36,9 +36,9 @@ public class CircularLinkedList{
      * Does not affect the Print() method.
      */
     public CircularLinkedList(String name, boolean printMessages) {
-        head = null;
-        name = this.name;
-        printMessages = this.printMessages;
+        this.head = null;
+        this.name = name;
+        this.printMessages = printMessages;
     }
 
     /**
