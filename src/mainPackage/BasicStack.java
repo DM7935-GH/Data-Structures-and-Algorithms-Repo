@@ -47,7 +47,7 @@ public class BasicStack {
         if (max_size <= 0) {
             this.max_size = 20;
             if (printMessages) {
-                System.err.println("Number given for basic list maximum size is invalid - 20 has been used.");
+                System.err.println("Number given for basic stack maximum size is invalid - 20 has been used.");
             }
         } else {
             this.max_size = max_size;
