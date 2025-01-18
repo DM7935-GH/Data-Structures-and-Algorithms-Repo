@@ -5,6 +5,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ 
         JUnit4_TestClassA.class,
+        JUnit4_TestClassB.class,
     })
 
 
