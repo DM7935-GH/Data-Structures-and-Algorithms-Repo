@@ -138,4 +138,54 @@ public class SortingAlgorithms {
             return list;
         }
     }
+
+    public int[] MergeSort(int[] list) {
+        int first = 0;
+        int last = list.length - 1;
+
+        if (first >= last) {
+            return list;
+        }
+
+        int middle = (first+last)/2;
+        int[] aux = new int[list.length];
+
+        list = MergeSort(list, first, middle, aux);
+        list = MergeSort(list, middle+1, last, aux);
+        list = Merge(list, first, middle, last, aux);
+        return list;
+    }
+
+    private int[] MergeSort(int[] list, int first, int last, int[] aux) {
+        if (first >= last) {
+            return list;
+        }
+
+        int middle = (first+last)/2;
+
+        list = MergeSort(list, first, middle, aux);
+        list = MergeSort(list, middle+1, last, aux);
+        list = Merge(list, first, middle, last, aux);
+        return list;
+    }
+
+    private int[] Merge(int[] list, int first, int middle, int last, int[] aux) {
+        int i, j;
+
+        for (i = middle+1; i > first; i--) {
+            aux[i-1] = list[i-1];
+        }
+        for (j = middle; j < last; j++) {
+            aux[last+middle-j] = list[j+1];
+        }
+
+        for (int k = first; k <= last; k++) {
+            if (aux[j] < aux[i]) {
+                list[k] = aux[j--];
+            } else {
+                list[k] = aux[i++];
+            }
+        }
+        return list;
+    }
 }
