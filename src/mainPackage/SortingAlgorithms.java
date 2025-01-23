@@ -1,5 +1,7 @@
 package mainPackage;
 
+import java.util.Arrays;
+
 public class SortingAlgorithms {
     public SortingAlgorithms() {}
 
@@ -43,5 +45,97 @@ public class SortingAlgorithms {
         }
 
         return list;
+    }
+
+    /**
+     * The public quicksort method that can be called externally.
+     * @param list - The list of integers to sort.
+     * @return Returns the sorted version of the original list of integers.
+     */
+    public int[] Quicksort(int[] list) {
+        int left = 0; int right = list.length - 1;
+        int temp;
+        if (list.length == 0 || list.length == 1) { // Quickest Sort
+            System.out.println(Arrays.toString(list) + " minus one");
+            return list;
+        } else if (list.length == 2) { // Quicker Sort
+            if (list[0] > list[1]) {
+                temp = list[0]; 
+                list[0] = list[1];
+                list[1] = temp;
+            }
+            System.out.println(Arrays.toString(list) + " minus two");
+            return list;
+        } else { // The actual Quicksort algorithm
+            int pivot = list[0];
+            while (left <= right) {
+                System.out.println(Arrays.toString(list) + " one");
+                while (list[left] <= pivot && left < list.length-1) { left++; }
+                if (left > right) { break; }
+                while (list[right] >= pivot && right > 0) { right--; }
+
+                temp = list[left];
+                list[left] = list[right];
+                list[right] = temp;
+
+                left++;
+                if (left > right) { break; } else { right--; }
+            }
+            System.out.println(Arrays.toString(list) + " two");
+            list[0] = list[right];
+            list[right] = pivot;
+            System.out.println(Arrays.toString(list) + " three");
+
+            list = Quicksort(list, 0, right-1);
+            list = Quicksort(list, right+1, list.length-1);
+            return list;
+        }
+    }
+
+    /**
+     * The private quicksort method that provides the recursion.
+     * @param list 
+     * @param first - The start index of the porition of the original list that should be sorted.
+     * @param last - The end index of the porition of the original list that should be sorted.
+     * @return Returns the list with the numbers between first and last (inclusive) sorted.
+     */
+    private int[] Quicksort(int[] list, int first, int last) {
+        int left = first; int right = last;
+        int temp;
+        if (left >= right) { // Quickest Sort
+            System.out.println(Arrays.toString(list) + " minus three");
+            return list;
+        } else if (right - left == 1) { // Quicker Sort
+            if (list[left] > list[right]) {
+                temp = list[left]; 
+                list[left] = list[right];
+                list[right] = temp;
+            }
+            System.out.println(Arrays.toString(list) + " minus four");
+            return list;
+        } else { // The actual Quicksort algorithm
+            int pivot = list[first];
+            while (left <= right) {
+                System.out.println(Arrays.toString(list) + " four");
+                while (list[left] <= pivot && left < last) { left++; }
+                if (left > right) { break; }
+                while (list[right] >= pivot && right > first) { right--; }
+
+                temp = list[left];
+                list[left] = list[right];
+                list[right] = temp;
+
+                left++; 
+                if (left > right) { break; } else { right--; }
+            }
+            System.out.println(Arrays.toString(list) + " five");
+            list[first] = list[right];
+            list[right] = pivot;
+            System.out.println(Arrays.toString(list) + " six");
+
+            list = Quicksort(list, first, right-1);
+            list = Quicksort(list, right+1, last);
+            return list;
+        }
     }
 }
