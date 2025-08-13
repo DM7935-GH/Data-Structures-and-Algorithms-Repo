@@ -1,16 +1,19 @@
 import mainPackage.BasicList;
 import mainPackage.LinkedList;
 import mainPackage.CircularLinkedList;
+import mainPackage.CountryLinkedList;
 
 public class MainCode {
     public static void main(String[] args) throws Exception {
         System.out.println("\n=== Basic List Test ===");
-        basicListTest();
+        BasicListTest();
         System.out.println("\n=== Linked List Test ===");
-        linkedListTest();
+        LinkedListTest();
+        System.out.println("\n=== Country Linked List Test ===");
+        CountryListTest();
     }
 
-    public static void basicListTest() {
+    public static void BasicListTest() {
         BasicList bList1 = new BasicList(5, "List 1", true);
         bList1.IsEmpty();
         bList1.Print();
@@ -36,7 +39,7 @@ public class MainCode {
         System.out.println("Popped item at index 0: " + bList1.Pop(0));
     }
 
-    public static void linkedListTest() {
+    public static void LinkedListTest() {
         LinkedList LList1 = new LinkedList(6, "List 2", true);
         LList1.IsEmpty();
         LList1.Print();
@@ -75,5 +78,22 @@ public class MainCode {
         CircularLinkedList CLL1 = new CircularLinkedList("List 2", true);
         CLL1.IsEmpty();
         CLL1.Print();
+    }
+
+    public static void CountryListTest() {
+        CountryLinkedList CLL1; CLL1 = new CountryLinkedList("Country List", true);
+        CLL1.IsEmpty();
+        CLL1.Length();
+        CLL1.Print();
+        CLL1.Add("Japan", 125, 340);
+        CLL1.Print();
+        CLL1.Add("UK", 71, 280);
+        CLL1.Print();
+        CLL1.Add("Nepal");
+        CLL1.Print(true, false, "alpha");
+        CLL1.Add("Russia", 143, 17100);
+        CLL1.Print();
+        CLL1.Add("Nigeria", 240, 900);
+        CLL1.Print(false, true, "area");
     }
 }
