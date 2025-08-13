@@ -234,6 +234,7 @@ public class CountryLinkedList {
                 }
                 break;
             }
+            node = node.alphaNext;
         }
     }
 

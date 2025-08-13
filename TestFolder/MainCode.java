@@ -84,16 +84,17 @@ public class MainCode {
         CountryLinkedList CLL1; CLL1 = new CountryLinkedList("Country List", true);
         CLL1.IsEmpty();
         CLL1.Length();
-        CLL1.Print();
         CLL1.Add("Japan", 125, 340);
-        CLL1.Print();
         CLL1.Add("UK", 71, 280);
-        CLL1.Print();
         CLL1.Add("Nepal");
         CLL1.Print(true, false, "alpha");
         CLL1.Add("Russia", 143, 17100);
-        CLL1.Print();
         CLL1.Add("Nigeria", 240, 900);
         CLL1.Print(false, true, "area");
+        CLL1.Remove("Nepal");
+        CLL1.Remove("Japan");
+        CLL1.Remove(null);
+        System.out.println("----\n \n");
+        CLL1.Print();
     }
 }
