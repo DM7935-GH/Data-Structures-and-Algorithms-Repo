@@ -1,7 +1,5 @@
 package mainPackage;
 
-import java.util.Arrays;
-
 public class SortingAlgorithms {
     public SortingAlgorithms() {}
 
@@ -179,5 +177,33 @@ public class SortingAlgorithms {
         return list;
     }
 
+    public int[] CountingSort(int[] inputArray) {
+        if (inputArray.length < 2) {
+            return inputArray;
+        }
 
+        int max = inputArray[0];
+        for (int num : inputArray) {
+            if (num > max) { max = num; }
+        }
+
+        int[] countArray = new int[max + 1];
+
+        for (int num : inputArray) {
+            countArray[num] += 1;
+        }
+
+        for (int i = 1; i < countArray.length; i++) {
+            countArray[i] += countArray[i-1];
+        }
+
+        int[] outputArray = new int[inputArray.length];
+
+        for (int i = inputArray.length - 1; i >= 0; i--) {
+            outputArray[ countArray[ inputArray[i] ] - 1 ] = inputArray[i];
+            countArray[ inputArray[i] ] = countArray[ inputArray[i] ] - 1;
+        }
+
+        return outputArray;
+    }
 }
