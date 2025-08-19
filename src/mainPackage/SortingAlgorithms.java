@@ -206,4 +206,41 @@ public class SortingAlgorithms {
 
         return outputArray;
     }
+
+    public int[] RadixSort(int[] inputArray) {
+        if (inputArray.length < 2) {
+            return inputArray;
+        }
+
+        int max = inputArray[0];
+        for (int num : inputArray) {
+            if (num > max) { max = num; }
+        }
+        int digits = ((int) Math.log10((double) max)) + 1;
+
+        for (int digit = 0; digit < digits; digit++) {
+            int[] countArray = new int[10];
+            int[] sortedArray = new int[inputArray.length];
+
+            int idx;
+            for (int num : inputArray) {
+                idx = (num / ((int) Math.pow(10.0, (double) digit))) % 10;
+                countArray[idx]++;
+            }
+
+            for (int i = 1; i < countArray.length; i++) {
+                countArray[i] += countArray[i-1];
+            }
+
+            for (int i = inputArray.length - 1; i >= 0; i--) {
+                idx = (inputArray[i] / ((int) Math.pow(10.0, (double) digit))) % 10;
+                sortedArray[ countArray[idx] - 1 ] = inputArray[i];
+                countArray[idx] -= 1;
+            }
+
+            inputArray = sortedArray;
+        }
+
+        return inputArray;
+    }
 }

@@ -75,4 +75,15 @@ public class JUnit4_TestClassB {
         assertArrayEquals(expectedArray2, SAObject.CountingSort(inputArray2));
         assertArrayEquals(expectedArray3, SAObject.CountingSort(inputArray3));
     }
+
+    @Test
+    public void Test_RadixSort() {
+        int[] inputArray1 = {4,3,7,6,1,2,9,5,8,0}; int[] expectedArray1 = {0,1,2,3,4,5,6,7,8,9};
+        int[] inputArray2 = {}; int[] expectedArray2 = {};
+        int[] inputArray3 = {12,16,7,14,4,18,2,16,2,10}; int[] expectedArray3 = {2,2,4,7,10,12,14,16,16,18};
+
+        assertArrayEquals(expectedArray1, SAObject.RadixSort(inputArray1));
+        assertArrayEquals(expectedArray2, SAObject.RadixSort(inputArray2));
+        assertArrayEquals(expectedArray3, SAObject.RadixSort(inputArray3));
+    }
 }
