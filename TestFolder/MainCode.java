@@ -1,5 +1,3 @@
-import java.text.NumberFormat.Style;
-
 import mainPackage.*;
 
 public class MainCode {
