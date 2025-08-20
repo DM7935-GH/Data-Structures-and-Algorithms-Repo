@@ -1,7 +1,6 @@
-import mainPackage.BasicList;
-import mainPackage.LinkedList;
-import mainPackage.CircularLinkedList;
-import mainPackage.CountryLinkedList;
+import java.text.NumberFormat.Style;
+
+import mainPackage.*;
 
 public class MainCode {
     public static void main(String[] args) throws Exception {
@@ -11,6 +10,8 @@ public class MainCode {
         LinkedListTest();
         System.out.println("\n=== Country Linked List Test ===");
         CountryListTest();
+        System.out.println("\n=== Hash Table Test ===");
+        HashTableTest();
     }
 
     public static void BasicListTest() {
@@ -96,5 +97,27 @@ public class MainCode {
         CLL1.Remove(null);
         System.out.println("----\n \n");
         CLL1.Print();
+    }
+
+    public static void HashTableTest() {
+        HashTable HT1; HT1 = new HashTable_OA(17);
+        HashTable HT2; HT2 = new HashTable_SC(0);
+
+        HT1.Print();
+        HT1.Add(0); HT1.Add(10); HT1.Add(16); HT1.Add(17); HT1.Add(25);
+        System.out.println("Output of adding 101: " + HT1.Add(101));
+        HT1.Print();
+        System.out.println("Index of 101: " + HT1.GetIndex(101));
+        HT1.Remove(0); HT1.Remove(10);
+        HT1.Print();
+        System.out.println("Output of removing 13: " + HT1.Remove(13) + "\n");
+
+        HT2.Print();
+        HT2.Add(0); HT2.Add(45); HT2.Add(50); HT2.Add(77); HT2.Add(555); HT2.Add(45);
+        HT2.Print();
+        System.out.println("Sub-list index of 45: " + HT2.GetIndex(45));
+        HT2.Remove(50); HT2.Remove(555);
+        HT2.Print();
+        System.out.println("Output of removing 50 (again): " + HT2.Remove(50));
     }
 }

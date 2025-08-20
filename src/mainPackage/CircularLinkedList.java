@@ -352,6 +352,7 @@ public class CircularLinkedList{
         System.out.print("Linked list " + name + " : [ ");
         if (head != null) {
             IntNode node = head;
+            System.out.print(node.value);
             if (node.pointer != head) { System.out.print(" , "); }
             while (node.pointer != head) {
                 node = node.pointer;
