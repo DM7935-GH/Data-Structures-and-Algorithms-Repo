@@ -1,6 +1,6 @@
 ## About This Repository
 
-The purpose of this repo is simply to practice creating common data structures and algorithms, refreshing my knowledge of Java in the process. The implementation of these is likely to differ from their built-in counterparts.
+This repository is simply a way for me to practice creating common data structures and algorithms, refreshing my knowledge of Java in the process. The implementation of these is likely to differ from their built-in counterparts.
 
 ### Folder Structure
 
